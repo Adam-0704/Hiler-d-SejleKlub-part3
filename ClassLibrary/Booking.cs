@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public class Booking
+    public class LedigBooking
     {
         public int BookingId { get; set; }
-        public double StartDato { get; set; }
-        public double SlutDato { get; set; }
+        public DateTime StartDato { get; set; }
+        public DateTime SlutDato { get; set; }
 
-        public Booking(int bookingid, double startdato, double slutdato )
+        public LedigBooking(int bookingid, DateTime startdato, DateTime slutdato )
         {
             BookingId = bookingid;
             StartDato = startdato;
@@ -27,5 +27,18 @@ namespace ClassLibrary
         }
 
 
+    }
+    public class OptagetBooking
+    {
+        public int BookingId { get; set; }
+        public DateTime StartDato { get; set; }
+        public DateTime SlutDato { get; set; }
+
+        public OptagetBooking(int bookingid, DateTime startdato, DateTime slutdato)
+        {
+            BookingId = bookingid;
+            StartDato = startdato;
+            SlutDato = slutdato;
+        }
     }
 }
