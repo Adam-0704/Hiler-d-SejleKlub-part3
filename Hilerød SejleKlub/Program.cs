@@ -114,19 +114,23 @@ namespace Hilerød_SejleKlub
                 }
                 else if (Valg == 3) /* her vises der en liste over alle de både som Sejleklubben har samt deres fejl(defekter osv)*/
                 {
-                   foreach (var Båd in både)
+                    foreach (var Båd in både)
                     {
 
                         Console.WriteLine(Båd.ToString());
                     }
-                    
+
                 }
                 else if (Valg == 4) /* se bookinger*/
                 {
 
-
-
+                    foreach (var LedigBooking in ledigbookinger)
+                    {
+                        Console.WriteLine(LedigBooking.ToString());
+                    }
                 }
+
+
                 else if (Valg == 5) /* opret booking */
                 {
 
@@ -135,7 +139,7 @@ namespace Hilerød_SejleKlub
                 else if (Valg == 6) /* se begivenehder */
                 {
 
-                    foreach(var Begivenhed in Begivenheder)
+                    foreach (var Begivenhed in Begivenheder)
                     {
                         Console.WriteLine(Begivenhed.ToString());
                     }

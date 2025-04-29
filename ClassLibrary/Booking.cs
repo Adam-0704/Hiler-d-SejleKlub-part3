@@ -40,5 +40,10 @@ namespace ClassLibrary
             StartDato = startdato;
             SlutDato = slutdato;
         }
+        public override string ToString()
+        {
+            return $"BookingId: {BookingId}, StartDato: {StartDato}, SlutDato : {SlutDato}";
+
+        }
     }
 }
