@@ -99,8 +99,8 @@ namespace Hilerød_SejleKlub
 
                     Console.WriteLine("Indtast telefon nr (ingen melemrum)");
                     int Telefon = Convert.ToInt32(Console.ReadLine());
-
-                    Medlem NytMedlem = new Medlem(04, Navn, Email, Telefon);
+                    var newID = medlemmer.Max(medlem => medlem.Id) + 1;
+                    Medlem NytMedlem = new Medlem(newID, Navn, Email, Telefon);
 
                     medlemmer.Add(NytMedlem);
 
