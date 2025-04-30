@@ -29,23 +29,5 @@ namespace ClassLibrary
         }
 
 
-    }
-    public class OptagetBooking
-    {
-        public int BookingId { get; set; }
-        public DateTime StartDato { get; set; }
-        public DateTime SlutDato { get; set; }
-
-        public OptagetBooking(int bookingid, DateTime startdato, DateTime slutdato)
-        {
-            BookingId = bookingid;
-            StartDato = startdato;
-            SlutDato = slutdato;
-        }
-        public override string ToString()
-        {
-            return $"BookingId: {BookingId}, StartDato: {StartDato}, SlutDato : {SlutDato}";
-
-        }
-    }
+    }       
 }
