@@ -90,110 +90,91 @@ namespace Hilerød_SejleKlub
 
                 int Valg = Convert.ToInt32(Console.ReadLine());
 
-                if (Valg == 1) /* her vises der en liste over alle medlemmer */
+                switch (Valg)
                 {
-                    foreach (var Medlem in medlemmer)
-                    {
-                        Console.WriteLine(Medlem.ToString());
-                    }
+                    case 1: // se medlemmer
+                        foreach (var Medlem in medlemmer)
+                        {
+                            Console.WriteLine(Medlem.ToString());
+                        }
+                        break;
 
-                }
-                else if (Valg == 2) /* her er der mulighed for at oprette en ny medlem til SejleKlubben */
-                {
-                    Console.WriteLine("opret Medlem");
-                    Thread.Sleep(1000);
+                    case 2: // opret medlem
+                        Console.WriteLine("opret Medlem");
+                        Thread.Sleep(1000);
 
-                    Console.WriteLine("indtast Navn");
-                    string Navn = Console.ReadLine();
+                        Console.WriteLine("indtast Navn");
+                        string Navn = Console.ReadLine();
 
-                    Console.WriteLine("Indtast Email ");
-                    string Email = Console.ReadLine();
+                        Console.WriteLine("Indtast Email ");
+                        string Email = Console.ReadLine();
 
-                    Console.WriteLine("Indtast telefon nr (ingen melemrum)");
-                    int Telefon = Convert.ToInt32(Console.ReadLine());
-                    var newID = medlemmer.Max(medlem => medlem.Id) + 1; //måske fjernes
-                    Medlem NytMedlem = new Medlem(newID, Navn, Email, Telefon);
+                        Console.WriteLine("Indtast telefon nr (ingen melemrum)");
+                        int Telefon = Convert.ToInt32(Console.ReadLine());
+                        var newID = medlemmer.Max(medlem => medlem.Id) + 1;
+                        Medlem NytMedlem = new Medlem(newID, Navn, Email, Telefon);
 
-                    medlemmer.Add(NytMedlem);
+                        medlemmer.Add(NytMedlem);
 
-                    Console.WriteLine("\nnyt medlem tilføjet");
-                    Console.WriteLine(NytMedlem.ToString());
-                    Thread.Sleep(1200);
+                        Console.WriteLine("\nnyt medlem tilføjet");
+                        Console.WriteLine(NytMedlem.ToString());
+                        Thread.Sleep(1200);
+                        break;
 
+                    case 3: // se både
+                        foreach (var Båd in både)
+                        {
+                            Console.WriteLine(Båd.ToString());
+                        }
+                        break;
 
+                    case 4: // se bookinger
+                        foreach (var Booking in bookinger)
+                        {
+                            Console.WriteLine(Booking.ToString());
+                        }
+                        break;
 
-                }
-                else if (Valg == 3) /* her vises der en liste over alle de både som Sejleklubben har samt deres fejl(defekter osv)*/
-                {
-                    foreach (var Båd in både)
-                    {
+                    case 5: // opret booking
+                        Console.WriteLine("Indtast Medlems Id");
+                        int medlemid = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Indtast Båd Id");
+                        int boatid = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Indtast Start Dato (dd-mm-yyyy)");
+                        DateTime startdato = Convert.ToDateTime(Console.ReadLine());
+                        Console.WriteLine("Indstast Slut Dato (dd-mm.yyyy)");
+                        DateTime slutdato = Convert.ToDateTime(Console.ReadLine());
+                        Console.WriteLine("\nDu har nu oprettet en ny bookning");
+                        break;
 
-                        Console.WriteLine(Båd.ToString());
-                    }
+                    case 6: // se begivenheder
+                        foreach (var Begivenhed in Begivenheder)
+                        {
+                            Console.WriteLine(Begivenhed.ToString());
+                        }
+                        break;
 
-                }
-                else if (Valg == 4) /* se bookinger*/
-                {
+                    case 7: // opret begivenhed
+                        Console.WriteLine("Indtast Medlems Id");
+                        int medlemid2 = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("indtast begivenheds navn");
+                        string Navn2 = Console.ReadLine();
+                        Console.WriteLine("Indtast Start Dato (dd-mm-yyyy)");
+                        DateTime startdato2 = Convert.ToDateTime(Console.ReadLine());
+                        Console.WriteLine("Indtast Slut Dato (dd-mm-yyyy)");
+                        DateTime slutdato2 = Convert.ToDateTime(Console.ReadLine());
+                        Console.WriteLine("Indtast sted");
+                        string sted = Console.ReadLine();
 
-                    foreach (var Booking in bookinger)
-                    {
-                        Console.WriteLine(Booking.ToString());
-                    }
-                }
+                        Begivenhed Nybegivenhed = new Begivenhed(medlemid2, Navn2, startdato2, slutdato2, sted);
+                        var newID2 = Begivenheder.Max(begivenhed => begivenhed.Id) + 1;
+                        Begivenheder.Add(Nybegivenhed);
+                        Console.WriteLine("\nDu har nu oprettet en ny begivenhed!");
+                        break;
 
-
-                else if (Valg == 5) /* opret booking */
-                {
-                
-                    Console.WriteLine("Indtast Medlems Id");
-                    int medlemid = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Indtast Båd Id");
-                    int boatid = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Indtast Start Dato (dd-mm-yyyy)");
-                    DateTime startdato = Convert.ToDateTime(Console.ReadLine());
-                    Console.WriteLine("Indstast Slut Dato (dd-mm.yyyy)");
-                    DateTime slutdato = Convert.ToDateTime(Console.ReadLine());
-                    // 1. Switch Case
-                    // Still spørgsmål 1. MedlemsId, boatId, Start og slut dato,
-                    /* Spørgsmål 2. Ledige Tider? True /false. Brug listen bookinger til at Where()
-                     og bool true/false (boatId, start tid og slut tid) */
-                    // Spørgsmål 3. Hvis ja så får du besked om den er booket, hvis nej start forfra.
-                    // Bool if true if false (String CW besked tilbage)
-                    Console.WriteLine("\nDu har nu oprettet en ny bookning");
-
-
-                }
-                else if (Valg == 6) /* se begivenehder */
-                {
-
-                    foreach (var Begivenhed in Begivenheder)
-                    {
-                        Console.WriteLine(Begivenhed.ToString());
-                    }
-
-                }
-                else if (Valg == 7) /* opret begivenheder */
-                {
-                    Console.WriteLine("Indtast Medlems Id");
-                    int medlemid = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("indtast begivenheds navn");
-                    string Navn = Console.ReadLine();
-                    Console.WriteLine("Indtast Start Dato (dd-mm-yyyy)");
-                    DateTime startdato = Convert.ToDateTime(Console.ReadLine());
-                    Console.WriteLine("Indtast Slut Dato (dd-mm-yyyy)");
-                    DateTime slutdato = Convert.ToDateTime(Console.ReadLine());
-                    Console.WriteLine("Indtast sted");
-                    string sted = Console.ReadLine();
-
-                    Begivenhed Nybegivenhed = new Begivenhed(medlemid, Navn, startdato, slutdato, sted);
-                    var newID = Begivenheder.Max(begivenhed => begivenhed.Id) + 1;
-                    Begivenheder.Add(Nybegivenhed);
-                    Console.WriteLine("\nDu har nu oprettet en ny begivenhed!");
-
-                }
-                else
-                {
-                    Console.WriteLine("please enter The valid numbers");
+                    default:
+                        Console.WriteLine("please enter The valid numbers");
+                        break;
                 }
             }
 
