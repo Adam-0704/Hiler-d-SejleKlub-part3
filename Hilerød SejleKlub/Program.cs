@@ -34,9 +34,12 @@ namespace Hilerød_SejleKlub
             både.Add(Båd2);
             både.Add(Båd3);
 
-            Begivenhed begivenhed1 = new Begivenhed(01,"SommerFest", new DateTime(2025,6,6), "amager strand");
-            Begivenhed begivenhed2 = new Begivenhed(02, "Fjordens festdag", new DateTime(2025,6,25), "Roskilde Havn");
-            Begivenhed begivenhed3 = new Begivenhed(03, "Øhavsregattaen", new DateTime(2025,7,5), "Det Sydfysnke Øhav");
+            Begivenhed begivenhed1 = new Begivenhed(01, "SommerFest", new DateTime(2025, 6, 6), new DateTime(2025, 6, 7), "amager strand");
+            Begivenhed begivenhed2 = new Begivenhed(02, "Fjordens festdag", new DateTime(2025, 6, 25), new DateTime(2025, 6, 26), "Roskilde Havn");
+            Begivenhed begivenhed3 = new Begivenhed(03, "Øhavsregattaen", new DateTime(2025, 7, 5), new DateTime(2025, 7, 6), "Det Sydfysnke Øhav");
+        
+        
+
 
             Begivenheder.Add(begivenhed1);
             Begivenheder.Add(begivenhed2);
@@ -170,7 +173,20 @@ namespace Hilerød_SejleKlub
                 }
                 else if (Valg == 7) /* opret begivenheder */
                 {
+                    Console.WriteLine("Indtast Medlems Id");
+                    int medlemid = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("indtast begivenheds navn");
+                    string Navn = Console.ReadLine();
+                    Console.WriteLine("Indtast Start Dato (dd-mm-yyyy)");
+                    DateTime startdato = Convert.ToDateTime(Console.ReadLine());
+                    Console.WriteLine("Indtast Slut Dato (dd-mm-yyyy)");
+                    DateTime slutdato = Convert.ToDateTime(Console.ReadLine());
+                    Console.WriteLine("Indtast sted");
+                    string sted = Console.ReadLine();
 
+                    Begivenhed Nybegivenhed = new Begivenhed(medlemid, Navn, startdato, slutdato, sted);
+                    var newID = Begivenheder.Max(begivenhed => begivenhed.Id) + 1;
+                    Begivenheder.Add(Nybegivenhed);
 
                 }
                 else
