@@ -62,28 +62,28 @@ namespace Hilerød_SejleKlub
             while (running == true)
             {
 
-                Console.WriteLine("vælg en af valmulighederne");
+                Console.WriteLine("Vælg en af valmulighederne");
                 Thread.Sleep(1000);
 
-                Console.WriteLine("1:  se medlemmer");
+                Console.WriteLine("1:  Se medlemmer");
                 Thread.Sleep(200);
 
-                Console.WriteLine("2:  opret medlem");
+                Console.WriteLine("2:  Opret medlem");
                 Thread.Sleep(200);
 
-                Console.WriteLine("3:  se både");
+                Console.WriteLine("3:  Se både");
                 Thread.Sleep(200);
 
-                Console.WriteLine("4:  se bookinger");
+                Console.WriteLine("4:  Se bookinger");
                 Thread.Sleep(200);
 
-                Console.WriteLine("5:  opret booking");
+                Console.WriteLine("5:  Opret booking");
                 Thread.Sleep(200);
 
-                Console.WriteLine("6:  se begivnheder");
+                Console.WriteLine("6:  Se begivnheder");
                 Thread.Sleep(200);
 
-                Console.WriteLine("7:  opret begivenhed");
+                Console.WriteLine("7:  Opret begivenhed");
                 Thread.Sleep(200);
 
 
@@ -100,10 +100,10 @@ namespace Hilerød_SejleKlub
                         break;
 
                     case 2: // opret medlem
-                        Console.WriteLine("opret Medlem");
+                        Console.WriteLine("Opret Medlem");
                         Thread.Sleep(1000);
 
-                        Console.WriteLine("indtast Navn");
+                        Console.WriteLine("Indtast Navn");
                         string Navn = Console.ReadLine();
 
                         Console.WriteLine("Indtast Email ");
@@ -116,7 +116,7 @@ namespace Hilerød_SejleKlub
 
                         medlemmer.Add(NytMedlem);
 
-                        Console.WriteLine("\nnyt medlem tilføjet");
+                        Console.WriteLine("\nNyt medlem tilføjet");
                         Console.WriteLine(NytMedlem.ToString());
                         Thread.Sleep(1200);
                         break;
@@ -173,7 +173,7 @@ namespace Hilerød_SejleKlub
                         break;
 
                     default:
-                        Console.WriteLine("please enter The valid numbers");
+                        Console.WriteLine("Please enter The valid numbers");
                         break;
                 }
             }

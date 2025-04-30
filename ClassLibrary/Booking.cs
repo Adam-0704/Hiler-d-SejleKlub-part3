@@ -27,7 +27,7 @@ namespace ClassLibrary
 
         public override string ToString()
         {
-            return $"Id: {BookingId}";
+            return $"Id: {BookingId}, Båd Id: {BoatId}, Medlem Id: {MedlemId}, Start Dato: {StartDato}, Slut Dato {SlutDato}";
         }
 
 
