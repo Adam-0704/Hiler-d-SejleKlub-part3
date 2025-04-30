@@ -11,7 +11,6 @@ namespace Hilerød_SejleKlub
        static List<Medlem> medlemmer = new();
        static List<Båd> både = new();
        static List<LedigBooking> ledigbookinger = new();
-       static List<OptagetBooking> optagetbokinger = new();
        static List<Begivenhed> Begivenheder = new();
 
 
