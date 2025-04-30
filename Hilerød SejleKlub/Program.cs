@@ -132,6 +132,13 @@ namespace Hilerød_SejleKlub
 
                 else if (Valg == 5) /* opret booking */
                 {
+                
+                    Console.WriteLine("Indtast MedlemsId");
+                    int medlemid = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Indtast BådId");
+                    int boatid = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Indtast Start Dato (dd-mm-yyyy)");
+                    DateTime startdato = Convert.ToDateTime(Console.ReadLine());
                     // 1. Switch Case
                     // Still spørgsmål 1. MedlemsId, boatId, Start og slut dato,
                     /* Spørgsmål 2. Ledige Tider? True /false. Brug listen bookinger til at Where()
