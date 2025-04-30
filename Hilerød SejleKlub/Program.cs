@@ -132,6 +132,12 @@ namespace Hilerød_SejleKlub
 
                 else if (Valg == 5) /* opret booking */
                 {
+                    // 1. Switch Case
+                    // Still spørgsmål 1. MedlemsId, boatId, Start og slut dato,
+                    /* Spørgsmål 2. Ledige Tider? True /false. Brug listen bookinger til at Where()
+                     og bool true/false (boatId, start tid og slut tid) */
+                    // Spørgsmål 3. Hvis ja så får du besked om den er booket, hvis nej start forfra.
+                    // Bool if true if false (String CW besked tilbage)
 
 
                 }
