@@ -60,25 +60,25 @@ namespace Hilerød_SejleKlub
             {
 
                 Console.WriteLine("vælg en af valmulighederne");
-                Thread.Sleep(1200);
+                Thread.Sleep(1000);
 
                 Console.WriteLine("1:  se medlemmer");
-                Thread.Sleep(700);
+                Thread.Sleep(200);
 
                 Console.WriteLine("2:  opret medlem");
-                Thread.Sleep(700);
+                Thread.Sleep(200);
 
                 Console.WriteLine("3:  se både");
-                Thread.Sleep(700);
+                Thread.Sleep(200);
 
                 Console.WriteLine("4:  se bookinger");
-                Thread.Sleep(700);
+                Thread.Sleep(200);
 
                 Console.WriteLine("5:  opret booking");
-                Thread.Sleep(700);
+                Thread.Sleep(200);
 
                 Console.WriteLine("6:  se begivnheder");
-                Thread.Sleep(700);
+                Thread.Sleep(200);
 
                 Console.WriteLine("7:  opret begivenhed");
 
@@ -107,7 +107,7 @@ namespace Hilerød_SejleKlub
 
                     Console.WriteLine("Indtast telefon nr (ingen melemrum)");
                     int Telefon = Convert.ToInt32(Console.ReadLine());
-                    var newID = medlemmer.Max(medlem => medlem.Id) + 1;
+                    var newID = medlemmer.Max(medlem => medlem.Id) + 1; //måske fjernes
                     Medlem NytMedlem = new Medlem(newID, Navn, Email, Telefon);
 
                     medlemmer.Add(NytMedlem);
@@ -147,6 +147,8 @@ namespace Hilerød_SejleKlub
                     int boatid = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Indtast Start Dato (dd-mm-yyyy)");
                     DateTime startdato = Convert.ToDateTime(Console.ReadLine());
+                    Console.WriteLine("Indstast Slut Dato (dd-mm.yyyy)");
+                    DateTime slutdato = Convert.ToDateTime(Console.ReadLine());
                     // 1. Switch Case
                     // Still spørgsmål 1. MedlemsId, boatId, Start og slut dato,
                     /* Spørgsmål 2. Ledige Tider? True /false. Brug listen bookinger til at Where()
