@@ -81,6 +81,7 @@ namespace Hilerød_SejleKlub
                 Thread.Sleep(200);
 
                 Console.WriteLine("7:  opret begivenhed");
+                Thread.Sleep(200);
 
 
 
