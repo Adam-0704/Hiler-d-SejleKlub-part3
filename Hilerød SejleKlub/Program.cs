@@ -159,6 +159,7 @@ namespace Hilerød_SejleKlub
                      og bool true/false (boatId, start tid og slut tid) */
                     // Spørgsmål 3. Hvis ja så får du besked om den er booket, hvis nej start forfra.
                     // Bool if true if false (String CW besked tilbage)
+                    Console.WriteLine("\nDu har nu oprettet en ny bookning");
 
 
                 }
@@ -187,6 +188,7 @@ namespace Hilerød_SejleKlub
                     Begivenhed Nybegivenhed = new Begivenhed(medlemid, Navn, startdato, slutdato, sted);
                     var newID = Begivenheder.Max(begivenhed => begivenhed.Id) + 1;
                     Begivenheder.Add(Nybegivenhed);
+                    Console.WriteLine("\nDu har nu oprettet en ny begivenhed!");
 
                 }
                 else
