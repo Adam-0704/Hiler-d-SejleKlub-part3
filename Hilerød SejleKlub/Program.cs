@@ -86,6 +86,8 @@ namespace Hilerød_SejleKlub
                 Console.WriteLine("7:  Opret begivenhed");
                 Thread.Sleep(200);
 
+             
+                Console.WriteLine(new string('-', 120));
 
 
                 int Valg = Convert.ToInt32(Console.ReadLine());
@@ -96,6 +98,7 @@ namespace Hilerød_SejleKlub
                         foreach (var Medlem in medlemmer)
                         {
                             Console.WriteLine(Medlem.ToString());
+                            Console.WriteLine(new string('-', 120));
                         }
                         break;
 
@@ -118,6 +121,7 @@ namespace Hilerød_SejleKlub
 
                         Console.WriteLine("\nNyt medlem tilføjet");
                         Console.WriteLine(NytMedlem.ToString());
+                        Console.WriteLine(new string('-', 120));
                         Thread.Sleep(1200);
                         break;
 
@@ -125,6 +129,8 @@ namespace Hilerød_SejleKlub
                         foreach (var Båd in både)
                         {
                             Console.WriteLine(Båd.ToString());
+
+                            Console.WriteLine(new string('-', 120));
                         }
                         break;
 
@@ -132,6 +138,8 @@ namespace Hilerød_SejleKlub
                         foreach (var Booking in bookinger)
                         {
                             Console.WriteLine(Booking.ToString());
+
+                            Console.WriteLine(new string('-', 120));
                         }
                         break;
 
@@ -145,12 +153,16 @@ namespace Hilerød_SejleKlub
                         Console.WriteLine("Indstast Slut Dato (dd-mm.yyyy)");
                         DateTime slutdato = Convert.ToDateTime(Console.ReadLine());
                         Console.WriteLine("\nDu har nu oprettet en ny bookning");
+
+                        Console.WriteLine(new string('-', 120));
                         break;
 
                     case 6: // se begivenheder
                         foreach (var Begivenhed in Begivenheder)
                         {
                             Console.WriteLine(Begivenhed.ToString());
+
+                            Console.WriteLine(new string('-', 120));
                         }
                         break;
 
@@ -170,6 +182,8 @@ namespace Hilerød_SejleKlub
                         var newID2 = Begivenheder.Max(begivenhed => begivenhed.Id) + 1;
                         Begivenheder.Add(Nybegivenhed);
                         Console.WriteLine("\nDu har nu oprettet en ny begivenhed!");
+
+                        Console.WriteLine(new string('-', 120));
                         break;
 
                     default:
