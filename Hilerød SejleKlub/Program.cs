@@ -42,6 +42,14 @@ namespace Hilerød_SejleKlub
             Begivenheder.Add(begivenhed2);
             Begivenheder.Add(begivenhed3);
 
+            Booking booking1 = new Booking(01, 01, 01, new DateTime(2025, 6, 1), new DateTime(2025, 6, 2));
+            Booking booking2 = new Booking(02, 02, 02, new DateTime(2025, 6, 3), new DateTime(2025, 6, 4));
+            Booking booking3 = new Booking(03, 03, 03, new DateTime(2025, 6, 5), new DateTime(2025, 6, 6));
+
+            bookinger.Add(booking1);
+            bookinger.Add(booking2);
+            bookinger.Add(booking3);
+
 
             Console.WriteLine("Velkommen til Hilerød SejleKlub");
             Thread.Sleep(1000);
@@ -133,9 +141,9 @@ namespace Hilerød_SejleKlub
                 else if (Valg == 5) /* opret booking */
                 {
                 
-                    Console.WriteLine("Indtast MedlemsId");
+                    Console.WriteLine("Indtast Medlems Id");
                     int medlemid = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Indtast BådId");
+                    Console.WriteLine("Indtast Båd Id");
                     int boatid = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Indtast Start Dato (dd-mm-yyyy)");
                     DateTime startdato = Convert.ToDateTime(Console.ReadLine());
