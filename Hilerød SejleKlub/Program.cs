@@ -123,9 +123,9 @@ namespace Hilerød_SejleKlub
                 else if (Valg == 4) /* se bookinger*/
                 {
 
-                    foreach (var LedigBooking in ledigbookinger)
+                    foreach (var Booking in bookinger)
                     {
-                        Console.WriteLine(LedigBooking.ToString());
+                        Console.WriteLine(Booking.ToString());
                     }
                 }
 
