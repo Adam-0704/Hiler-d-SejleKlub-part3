@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public class LedigBooking
+    public class Booking
     {
         public int BookingId { get; set; }
         public int BoatId { get; set; }
+        public int MedlemId { get; set; }
         public DateTime StartDato { get; set; }
         public DateTime SlutDato { get; set; }
 
-        public LedigBooking(int bookingid, int boatid, DateTime startdato, DateTime slutdato )
+        public Booking(int bookingid, int boatid, int medlemid, DateTime startdato, DateTime slutdato )
         {
             BookingId = bookingid;
-            BoatId = BoatId;
+            BoatId = boatid;
+            MedlemId = medlemid;
             StartDato = startdato;
             SlutDato = slutdato;
             
