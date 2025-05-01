@@ -37,8 +37,6 @@ namespace Hilerød_SejleKlub
             Begivenhed begivenhed1 = new Begivenhed(01, "SommerFest", new DateTime(2025, 6, 6), new DateTime(2025, 6, 7), "amager strand");
             Begivenhed begivenhed2 = new Begivenhed(02, "Fjordens festdag", new DateTime(2025, 6, 25), new DateTime(2025, 6, 26), "Roskilde Havn");
             Begivenhed begivenhed3 = new Begivenhed(03, "Øhavsregattaen", new DateTime(2025, 7, 5), new DateTime(2025, 7, 6), "Det Sydfysnke Øhav");
-        
-        
 
 
             Begivenheder.Add(begivenhed1);
@@ -86,7 +84,10 @@ namespace Hilerød_SejleKlub
                 Console.WriteLine("7:  Opret begivenhed");
                 Thread.Sleep(200);
 
-             
+                Console.WriteLine("8:  Rediger medlem");
+                Thread.Sleep(200);
+
+
                 Console.WriteLine(new string('-', 120));
 
 
@@ -187,6 +188,48 @@ namespace Hilerød_SejleKlub
 
                         Console.WriteLine(new string('-', 120));
                         break;
+
+                        case 8: // rediger medlem
+                        Console.WriteLine("Indtast Medlems Id for det medlem, du vil redigere:");
+                        int redigerId = Convert.ToInt32(Console.ReadLine());
+
+                        var medlemTilRedigering = medlemmer.FirstOrDefault(medlem => medlem.Id == redigerId);
+
+                         if (medlemTilRedigering != null)
+                         {
+                         Console.WriteLine("Hvad vil du redigere?");
+                         Console.WriteLine("1: Navn");
+                         Console.WriteLine("2: Email");
+                         Console.WriteLine("3: Telefon");
+        
+                         int redigerValg = Convert.ToInt32(Console.ReadLine());
+
+                         switch (redigerValg)
+                          {
+                            case 1:
+                            Console.WriteLine("Indtast nyt navn:");
+                             medlemTilRedigering.Navn = Console.ReadLine();
+                             break;
+                             case 2:
+                             Console.WriteLine("Indtast ny email:");
+                             medlemTilRedigering.Email = Console.ReadLine();
+                             break;
+                             case 3:
+                             Console.WriteLine("Indtast nyt telefonnummer:");
+                             medlemTilRedigering.Telefon = Convert.ToInt32(Console.ReadLine());
+                             break;
+                             default:
+                             Console.WriteLine("Ugyldigt valg.");
+                             break;
+                          }
+
+                         Console.WriteLine("Medlemmet er blevet opdateret:");
+                          }
+                         else
+                         {
+                          Console.WriteLine("Medlem med det angivne ID blev ikke fundet.");
+                         }
+                          break;
 
                     default:
                         Console.WriteLine("Please enter The valid numbers");
