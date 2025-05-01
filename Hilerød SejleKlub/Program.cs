@@ -72,7 +72,7 @@ namespace Hilerød_SejleKlub
                 Console.WriteLine("3:  Se både");
                 Thread.Sleep(200);
 
-                Console.WriteLine("4: Opret båd");
+                Console.WriteLine("4:  Opret båd");
                 Thread.Sleep(200);
 
                 Console.WriteLine("5:  Se bookinger");
@@ -89,6 +89,8 @@ namespace Hilerød_SejleKlub
 
                 Console.WriteLine("9:  Rediger medlem");
                 Thread.Sleep(200);
+
+                Console.WriteLine("10: Blog afsnit");
 
 
                 Console.WriteLine(new string('-', 120));
@@ -211,8 +213,8 @@ namespace Hilerød_SejleKlub
 
                         Console.WriteLine(new string('-', 120));
                         break;
-
-                        case 9: // rediger medlem
+                    
+                    case 9: // rediger medlem
                         Console.WriteLine("Indtast Medlems Id for det medlem, du vil redigere:");
                         int redigerId = Convert.ToInt32(Console.ReadLine());
 
@@ -253,6 +255,11 @@ namespace Hilerød_SejleKlub
                           Console.WriteLine("Medlem med det angivne ID blev ikke fundet.");
                          }
                           break;
+                    case 10:
+                   
+                    Console.WriteLine("Både i Hillerød Sejlklub – En Mangfoldig Flåde på Sjælsø Hillerød Sejlklub huser en bred vifte af både, der afspejler både tradition og moderne sejlads. Klubben ligger idyllisk placeret ved Sjælsø, og her finder man alt fra små joller og optimistbåde til kølbåde og turbåde, der egner sig til længere udflugter. For de yngste sejlere er optimistjollerne en fast del af hverdagen, mens de mere erfarne medlemmer ofte ses med hænderne på roret i en Yngling, Wayfarer eller en af klubbens kølbåde.\r\n\r\nKlubben råder over flere fællesbåde, som giver medlemmer mulighed for at sejle uden at eje deres egen båd. Det skaber et inkluderende miljø, hvor alle – uanset erfaring og udstyr – kan komme ud på vandet. Derudover arrangeres der jævnligt kapsejladser, hvor både af forskellige klasser mødes i venskabelig konkurrence. Her bliver bådenes egenskaber virkelig sat på prøve, og det er ikke kun farten, men også sejlerens kunnen, der gør forskellen.\r\n\r\nBådeflåden i Hillerød Sejlklub er ikke bare et teknisk aktiv – den er en central del af klubbens fællesskab og kultur. Hver båd har sin egen historie og bidrager til den levende sejltradition på Sjælsø.");
+                    Console.WriteLine(new string('-', 120));
+                        break;
 
                     default:
                         Console.WriteLine("Please enter The valid numbers");
