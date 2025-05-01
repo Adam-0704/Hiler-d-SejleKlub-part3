@@ -12,6 +12,12 @@ namespace Hilerød_SejleKlub
        static List<Båd> både = new();
        static List<Booking> bookinger = new();
        static List<Begivenhed> Begivenheder = new();
+        static string blogIndhold = "Både i Hillerød Sejlklub – En Mangfoldig Flåde på Sjælsø\n" +
+                            "Hillerød Sejlklub huser en bred vifte af både, der afspejler både tradition og moderne sejlads. Klubben ligger idyllisk placeret ved Sjælsø, og her finder man alt fra små joller og optimistbåde til kølbåde og turbåde, der egner sig til længere udflugter.\n" +
+                            "For de yngste sejlere er optimistjollerne en fast del af hverdagen, mens de mere erfarne medlemmer ofte ses med hænderne på roret i en Yngling, Wayfarer eller en af klubbens kølbåde.\n" +
+                            "Klubben råder over flere fællesbåde, som giver medlemmer mulighed for at sejle uden at eje deres egen båd. Det skaber et inkluderende miljø, hvor alle – uanset erfaring og udstyr – kan komme ud på vandet.\n" +
+                            "Derudover arrangeres der jævnligt kapsejladser, hvor både af forskellige klasser mødes i venskabelig konkurrence.\n" +
+                            "Bådeflåden i Hillerød Sejlklub er ikke bare et teknisk aktiv – den er en central del af klubbens fællesskab og kultur.";
 
 
 
@@ -91,6 +97,10 @@ namespace Hilerød_SejleKlub
                 Thread.Sleep(200);
 
                 Console.WriteLine("10: Blog afsnit");
+                Thread.Sleep(200);
+
+                Console.WriteLine("11: Rediger blog");
+                Thread.Sleep(200);
 
 
                 Console.WriteLine(new string('-', 120));
@@ -255,18 +265,43 @@ namespace Hilerød_SejleKlub
                           Console.WriteLine("Medlem med det angivne ID blev ikke fundet.");
                          }
                           break;
-                    case 10:
-                   
-                    Console.WriteLine("Både i Hillerød Sejlklub – En Mangfoldig Flåde på Sjælsø Hillerød Sejlklub huser en bred vifte af både, der afspejler både tradition og moderne sejlads. Klubben ligger idyllisk placeret ved Sjælsø, og her finder man alt fra små joller og optimistbåde til kølbåde og turbåde, der egner sig til længere udflugter. For de yngste sejlere er optimistjollerne en fast del af hverdagen, mens de mere erfarne medlemmer ofte ses med hænderne på roret i en Yngling, Wayfarer eller en af klubbens kølbåde.\r\n\r\nKlubben råder over flere fællesbåde, som giver medlemmer mulighed for at sejle uden at eje deres egen båd. Det skaber et inkluderende miljø, hvor alle – uanset erfaring og udstyr – kan komme ud på vandet. Derudover arrangeres der jævnligt kapsejladser, hvor både af forskellige klasser mødes i venskabelig konkurrence. Her bliver bådenes egenskaber virkelig sat på prøve, og det er ikke kun farten, men også sejlerens kunnen, der gør forskellen.\r\n\r\nBådeflåden i Hillerød Sejlklub er ikke bare et teknisk aktiv – den er en central del af klubbens fællesskab og kultur. Hver båd har sin egen historie og bidrager til den levende sejltradition på Sjælsø.");
-                    Console.WriteLine(new string('-', 120));
+
+                    case 10: // Vis blogindhold
+                        Console.WriteLine(blogIndhold);
+                        Console.WriteLine(new string('-', 120));
                         break;
 
-                    default:
-                        Console.WriteLine("Please enter The valid numbers");
+                    case 11: // Rediger blog
+
+                        Console.WriteLine("Velkommen til Hillerød Sejlklubs Blog!");
+                        Console.WriteLine("1: Se blogindhold");
+                        Console.WriteLine("2: Rediger blogindhold");
+                        int blogValg = Convert.ToInt32(Console.ReadLine());
+
+                        switch (blogValg)
+                        {
+                            case 1: // Se blogindhold
+                                Console.WriteLine(blogIndhold);
+                                break;
+
+                            case 2: // Rediger blogindhold
+                                Console.WriteLine("Indtast nyt blogindhold:");
+                                blogIndhold = Console.ReadLine();
+                                Console.WriteLine("\nBlogindholdet er blevet opdateret:");
+                                Console.WriteLine(blogIndhold);
+                                break;
+
+                            default:
+                                Console.WriteLine("Ugyldigt valg.");
+                                break;
+                        }
+                        Console.WriteLine(new string('-', 120));
                         break;
+                }
+                        
                 }
             }
 
         }
     }
-}
+
