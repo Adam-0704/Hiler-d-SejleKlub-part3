@@ -8,10 +8,10 @@ namespace Hilerød_SejleKlub
 {
     internal class Program
     {
-       static List<Medlem> medlemmer = new();
-       static List<Båd> både = new();
-       static List<Booking> bookinger = new();
-       static List<Begivenhed> Begivenheder = new();
+        static List<Medlem> medlemmer = new();
+        static List<Båd> både = new();
+        static List<Booking> bookinger = new();
+        static List<Begivenhed> Begivenheder = new();
         static string blogIndhold = "Både i Hillerød Sejlklub – En Mangfoldig Flåde på Sjælsø\n" +
                             "Hillerød Sejlklub huser en bred vifte af både, der afspejler både tradition og moderne sejlads. Klubben ligger idyllisk placeret ved Sjælsø, og her finder man alt fra små joller og optimistbåde til kølbåde og turbåde, der egner sig til længere udflugter.\n" +
                             "For de yngste sejlere er optimistjollerne en fast del af hverdagen, mens de mere erfarne medlemmer ofte ses med hænderne på roret i en Yngling, Wayfarer eller en af klubbens kølbåde.\n" +
@@ -24,17 +24,17 @@ namespace Hilerød_SejleKlub
         static void Main(string[] args)
         {
 
-            Medlem Medlem1 = new Medlem(01, "Jonas Johansen", "Jonas2@yahoo.dk", 45305704 );
+            Medlem Medlem1 = new Medlem(01, "Jonas Johansen", "Jonas2@yahoo.dk", 45305704);
             Medlem Medlem2 = new Medlem(02, "Emil carlsen", "Emil32@outlook.com", 22740724);
-            Medlem Medlem3 = new Medlem(03,"Adam Sørensen" , "AdamSør32@gmail.com", 53750704);
+            Medlem Medlem3 = new Medlem(03, "Adam Sørensen", "AdamSør32@gmail.com", 53750704);
 
             medlemmer.Add(Medlem1);
             medlemmer.Add(Medlem2);
             medlemmer.Add(Medlem3);
 
-            Båd Båd1 = new Båd(01, "Hanse 388", "Yanmar 29 HK diesel motor","DEN 388", "Utætte luger og vinduer");
-            Båd Båd2 = new Båd(02, "Bavaria cruiser 34", "Volvo Penta 28 hk dieselmotor","DEN 1234","Defekte Pumpe");
-            Båd Båd3 = new Båd(03, "Sun Odyssey 410", "yannmar 40 hk dieselmotor", "DEN 520" , "Fejler Intet");
+            Båd Båd1 = new Båd(01, "Hanse 388", "Yanmar 29 HK diesel motor", "DEN 388", "Utætte luger og vinduer");
+            Båd Båd2 = new Båd(02, "Bavaria cruiser 34", "Volvo Penta 28 hk dieselmotor", "DEN 1234", "Defekte Pumpe");
+            Båd Båd3 = new Båd(03, "Sun Odyssey 410", "yannmar 40 hk dieselmotor", "DEN 520", "Fejler Intet");
 
             både.Add(Båd1);
             både.Add(Båd2);
@@ -151,18 +151,18 @@ namespace Hilerød_SejleKlub
                         break;
 
                     case 4: // Opret både
-                        { 
-                            
+                        {
+
                             Console.WriteLine("Indtast navn på båden");
                             string navn = (Console.ReadLine());
                             Console.WriteLine("Indtast motor på båden)");
                             string motor = (Console.ReadLine());
                             Console.WriteLine("Indtast sejlnummer på båden");
-                            string sejlnummer = (Console.ReadLine());   
+                            string sejlnummer = (Console.ReadLine());
                             Console.WriteLine("Indtast problem (hvis intet fejler indtast ¨fejler intet¨)");
-                            string problem =(Console.ReadLine());
+                            string problem = (Console.ReadLine());
                             Console.WriteLine("\nDu har nu oprettet en ny båd");
-                            var newID4 = bookinger.Max(booking => booking.BookingId) + 1;
+                            var newID4 = både.Max(båd => båd.Id) + 1;
                             Båd NyBåd = new Båd(newID4, navn, motor, sejlnummer, problem);
                             både.Add(NyBåd);
                             Console.WriteLine(new string('-', 120));
@@ -190,7 +190,7 @@ namespace Hilerød_SejleKlub
                         DateTime slutdato = Convert.ToDateTime(Console.ReadLine());
                         Console.WriteLine("\nDu har nu oprettet en ny bookning");
                         var newID3 = bookinger.Max(booking => booking.BookingId) + 1;
-                        Booking NyBooking = new Booking(newID3, boatid,medlemid, startdato, slutdato);
+                        Booking NyBooking = new Booking(newID3, boatid, medlemid, startdato, slutdato);
                         bookinger.Add(NyBooking);
                         Console.WriteLine(new string('-', 120));
                         break;
@@ -223,48 +223,48 @@ namespace Hilerød_SejleKlub
 
                         Console.WriteLine(new string('-', 120));
                         break;
-                    
+
                     case 9: // rediger medlem
                         Console.WriteLine("Indtast Medlems Id for det medlem, du vil redigere:");
                         int redigerId = Convert.ToInt32(Console.ReadLine());
 
                         var medlemTilRedigering = medlemmer.FirstOrDefault(medlem => medlem.Id == redigerId);
 
-                         if (medlemTilRedigering != null)
-                         {
-                         Console.WriteLine("Hvad vil du redigere?");
-                         Console.WriteLine("1: Navn");
-                         Console.WriteLine("2: Email");
-                         Console.WriteLine("3: Telefon");
-        
-                         int redigerValg = Convert.ToInt32(Console.ReadLine());
+                        if (medlemTilRedigering != null)
+                        {
+                            Console.WriteLine("Hvad vil du redigere?");
+                            Console.WriteLine("1: Navn ("+medlemTilRedigering.Navn+")");
+                            Console.WriteLine("2: Email ("+medlemTilRedigering.Email+")");
+                            Console.WriteLine("3: Telefon ("+medlemTilRedigering.Telefon+")");
 
-                         switch (redigerValg)
-                          {
-                            case 1:
-                            Console.WriteLine("Indtast nyt navn:");
-                             medlemTilRedigering.Navn = Console.ReadLine();
-                             break;
-                             case 2:
-                             Console.WriteLine("Indtast ny email:");
-                             medlemTilRedigering.Email = Console.ReadLine();
-                             break;
-                             case 3:
-                             Console.WriteLine("Indtast nyt telefonnummer:");
-                             medlemTilRedigering.Telefon = Convert.ToInt32(Console.ReadLine());
-                             break;
-                             default:
-                             Console.WriteLine("Ugyldigt valg.");
-                             break;
-                          }
+                            int redigerValg = Convert.ToInt32(Console.ReadLine());
 
-                         Console.WriteLine("Medlemmet er blevet opdateret:");
-                          }
-                         else
-                         {
-                          Console.WriteLine("Medlem med det angivne ID blev ikke fundet.");
-                         }
-                          break;
+                            switch (redigerValg)
+                            {
+                                case 1:
+                                    Console.WriteLine("Indtast nyt navn:");
+                                    medlemTilRedigering.Navn = Console.ReadLine();
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Indtast ny email:");
+                                    medlemTilRedigering.Email = Console.ReadLine();
+                                    break;
+                                case 3:
+                                    Console.WriteLine("Indtast nyt telefonnummer:");
+                                    medlemTilRedigering.Telefon = Convert.ToInt32(Console.ReadLine());
+                                    break;
+                                default:
+                                    Console.WriteLine("Ugyldigt valg.");
+                                    break;
+                            }
+
+                            Console.WriteLine("Medlemmet er blevet opdateret:");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Medlem med det angivne ID blev ikke fundet.");
+                        }
+                        break;
 
                     case 10: // Vis blogindhold
                         Console.WriteLine(blogIndhold);
@@ -298,10 +298,10 @@ namespace Hilerød_SejleKlub
                         Console.WriteLine(new string('-', 120));
                         break;
                 }
-                        
-                }
-            }
 
+            }
         }
+
     }
+}
 
