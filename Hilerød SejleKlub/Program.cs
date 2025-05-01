@@ -153,7 +153,9 @@ namespace Hilerød_SejleKlub
                         Console.WriteLine("Indstast Slut Dato (dd-mm.yyyy)");
                         DateTime slutdato = Convert.ToDateTime(Console.ReadLine());
                         Console.WriteLine("\nDu har nu oprettet en ny bookning");
-
+                        var newID3 = bookinger.Max(booking => booking.BookingId) + 1;
+                        Booking NyBooking = new Booking(newID3, boatid,medlemid, startdato, slutdato);
+                        bookinger.Add(NyBooking);
                         Console.WriteLine(new string('-', 120));
                         break;
 
