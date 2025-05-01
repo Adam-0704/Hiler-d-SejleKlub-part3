@@ -72,19 +72,22 @@ namespace Hilerød_SejleKlub
                 Console.WriteLine("3:  Se både");
                 Thread.Sleep(200);
 
-                Console.WriteLine("4:  Se bookinger");
+                Console.WriteLine("4: Opret båd");
                 Thread.Sleep(200);
 
-                Console.WriteLine("5:  Opret booking");
+                Console.WriteLine("5:  Se bookinger");
                 Thread.Sleep(200);
 
-                Console.WriteLine("6:  Se begivnheder");
+                Console.WriteLine("6:  Opret booking");
                 Thread.Sleep(200);
 
-                Console.WriteLine("7:  Opret begivenhed");
+                Console.WriteLine("7:  Se begivnheder");
                 Thread.Sleep(200);
 
-                Console.WriteLine("8:  Rediger medlem");
+                Console.WriteLine("8:  Opret begivenhed");
+                Thread.Sleep(200);
+
+                Console.WriteLine("9:  Rediger medlem");
                 Thread.Sleep(200);
 
 
@@ -135,7 +138,27 @@ namespace Hilerød_SejleKlub
                         }
                         break;
 
-                    case 4: // se bookinger
+                    case 4: // Opret både
+                        { 
+                            
+                            Console.WriteLine("Indtast navn på båden");
+                            string navn = (Console.ReadLine());
+                            Console.WriteLine("Indtast motor på båden)");
+                            string motor = (Console.ReadLine());
+                            Console.WriteLine("Indtast sejlnummer på båden");
+                            string sejlnummer = (Console.ReadLine());   
+                            Console.WriteLine("Indtast problem (hvis intet fejler indtast ¨fejler intet¨)");
+                            string problem =(Console.ReadLine());
+                            Console.WriteLine("\nDu har nu oprettet en ny båd");
+                            var newID4 = bookinger.Max(booking => booking.BookingId) + 1;
+                            Båd NyBåd = new Båd(newID4, navn, motor, sejlnummer, problem);
+                            både.Add(NyBåd);
+                            Console.WriteLine(new string('-', 120));
+                            break;
+
+                        }
+
+                    case 5: // se bookinger
                         foreach (var Booking in bookinger)
                         {
                             Console.WriteLine(Booking.ToString());
@@ -144,7 +167,7 @@ namespace Hilerød_SejleKlub
                         }
                         break;
 
-                    case 5: // opret booking
+                    case 6:// opret booking
                         Console.WriteLine("Indtast Medlems Id");
                         int medlemid = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Indtast Båd Id");
@@ -160,7 +183,7 @@ namespace Hilerød_SejleKlub
                         Console.WriteLine(new string('-', 120));
                         break;
 
-                    case 6: // se begivenheder
+                    case 7: // se begivenheder
                         foreach (var Begivenhed in Begivenheder)
                         {
                             Console.WriteLine(Begivenhed.ToString());
@@ -169,7 +192,7 @@ namespace Hilerød_SejleKlub
                         }
                         break;
 
-                    case 7: // opret begivenhed
+                    case 8: // opret begivenhed
                         Console.WriteLine("Indtast Medlems Id");
                         int medlemid2 = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("indtast begivenheds navn");
@@ -189,7 +212,7 @@ namespace Hilerød_SejleKlub
                         Console.WriteLine(new string('-', 120));
                         break;
 
-                        case 8: // rediger medlem
+                        case 9: // rediger medlem
                         Console.WriteLine("Indtast Medlems Id for det medlem, du vil redigere:");
                         int redigerId = Convert.ToInt32(Console.ReadLine());
 
