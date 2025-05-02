@@ -75,23 +75,19 @@ namespace Hilerød_SejleKlub
                 Console.WriteLine("8:  Opret booking");
                 Thread.Sleep(200);
 
-                Console.WriteLine("9:  Rediger bookinger");
+                Console.WriteLine("9:  Se begivenheder");
                 Thread.Sleep(200);
 
-                Console.WriteLine("10:  Se begivnheder");
+                Console.WriteLine("10: Opret begivenhed");
                 Thread.Sleep(200);
 
-                Console.WriteLine("11:  Opret begivenhed");
+                Console.WriteLine("11: Rediger bookninger");
                 Thread.Sleep(200);
 
-                Console.WriteLine("12:  Rediger begivenheder");
+                Console.WriteLine("12: Blog afsnit");
                 Thread.Sleep(200);
 
-
-                Console.WriteLine("13: Blog afsnit");
-                Thread.Sleep(200);
-
-                Console.WriteLine("14: Rediger blog");
+                Console.WriteLine("13: Rediger blog");
                 Thread.Sleep(200);
 
 
