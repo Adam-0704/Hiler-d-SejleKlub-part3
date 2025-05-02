@@ -1,17 +1,13 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Security;
 using ClassLibrary;
+using ClassLibrary.Repositories;
 
 namespace Hilerød_SejleKlub
 {
     internal class Program
     {
-        static List<Medlem> medlemmer = new();
-        static List<Båd> både = new();
-        static List<Booking> bookinger = new();
-        static List<Begivenhed> Begivenheder = new();
         static string blogIndhold = "Både i Hillerød Sejlklub – En Mangfoldig Flåde på Sjælsø\n" +
                             "Hillerød Sejlklub huser en bred vifte af både, der afspejler både tradition og moderne sejlads. Klubben ligger idyllisk placeret ved Sjælsø, og her finder man alt fra små joller og optimistbåde til kølbåde og turbåde, der egner sig til længere udflugter.\n" +
                             "For de yngste sejlere er optimistjollerne en fast del af hverdagen, mens de mere erfarne medlemmer ofte ses med hænderne på roret i en Yngling, Wayfarer eller en af klubbens kølbåde.\n" +
@@ -19,44 +15,30 @@ namespace Hilerød_SejleKlub
                             "Derudover arrangeres der jævnligt kapsejladser, hvor både af forskellige klasser mødes i venskabelig konkurrence.\n" +
                             "Bådeflåden i Hillerød Sejlklub er ikke bare et teknisk aktiv – den er en central del af klubbens fællesskab og kultur.";
 
-
-
         static void Main(string[] args)
         {
+            // Opret repository-objekter
+            var medlemRepo = new MedlemRepository();
+            var bådRepo = new BådRepository();
+            var bookingRepo = new BookingRepository();
+            var begivenhedRepo = new BegivenhedRepository();
 
-            Medlem Medlem1 = new Medlem(01, "Jonas Johansen", "Jonas2@yahoo.dk", 45305704);
-            Medlem Medlem2 = new Medlem(02, "Emil carlsen", "Emil32@outlook.com", 22740724);
-            Medlem Medlem3 = new Medlem(03, "Adam Sørensen", "AdamSør32@gmail.com", 53750704);
+            // Tilføj data til repositories
+            medlemRepo.Add(new Medlem(1, "Jonas Johansen", "Jonas2@yahoo.dk", 45305704));
+            medlemRepo.Add(new Medlem(2, "Emil Carlsen", "Emil32@outlook.com", 22740724));
+            medlemRepo.Add(new Medlem(3, "Adam Sørensen", "AdamSør32@gmail.com", 53750704));
 
-            medlemmer.Add(Medlem1);
-            medlemmer.Add(Medlem2);
-            medlemmer.Add(Medlem3);
+            bådRepo.Add(new Båd(1, "Hanse 388", "Yanmar 29 HK diesel motor", "DEN 388", "Utætte luger og vinduer"));
+            bådRepo.Add(new Båd(2, "Bavaria cruiser 34", "Volvo Penta 28 hk dieselmotor", "DEN 1234", "Defekte Pumpe"));
+            bådRepo.Add(new Båd(3, "Sun Odyssey 410", "Yanmar 40 hk dieselmotor", "DEN 520", "Fejler Intet"));
 
-            Båd Båd1 = new Båd(01, "Hanse 388", "Yanmar 29 HK diesel motor", "DEN 388", "Utætte luger og vinduer");
-            Båd Båd2 = new Båd(02, "Bavaria cruiser 34", "Volvo Penta 28 hk dieselmotor", "DEN 1234", "Defekte Pumpe");
-            Båd Båd3 = new Båd(03, "Sun Odyssey 410", "yannmar 40 hk dieselmotor", "DEN 520", "Fejler Intet");
+            begivenhedRepo.Add(new Begivenhed(1, "SommerFest", new DateTime(2025, 6, 6), new DateTime(2025, 6, 7), "Amager Strand"));
+            begivenhedRepo.Add(new Begivenhed(2, "Fjordens festdag", new DateTime(2025, 6, 25), new DateTime(2025, 6, 26), "Roskilde Havn"));
+            begivenhedRepo.Add(new Begivenhed(3, "Øhavsregattaen", new DateTime(2025, 7, 5), new DateTime(2025, 7, 6), "Det Sydfynske Øhav"));
 
-            både.Add(Båd1);
-            både.Add(Båd2);
-            både.Add(Båd3);
-
-            Begivenhed begivenhed1 = new Begivenhed(01, "SommerFest", new DateTime(2025, 6, 6), new DateTime(2025, 6, 7), "amager strand");
-            Begivenhed begivenhed2 = new Begivenhed(02, "Fjordens festdag", new DateTime(2025, 6, 25), new DateTime(2025, 6, 26), "Roskilde Havn");
-            Begivenhed begivenhed3 = new Begivenhed(03, "Øhavsregattaen", new DateTime(2025, 7, 5), new DateTime(2025, 7, 6), "Det Sydfysnke Øhav");
-
-
-            Begivenheder.Add(begivenhed1);
-            Begivenheder.Add(begivenhed2);
-            Begivenheder.Add(begivenhed3);
-
-            Booking booking1 = new Booking(01, 01, 01, new DateTime(2025, 6, 1), new DateTime(2025, 6, 2));
-            Booking booking2 = new Booking(02, 02, 02, new DateTime(2025, 6, 3), new DateTime(2025, 6, 4));
-            Booking booking3 = new Booking(03, 03, 03, new DateTime(2025, 6, 5), new DateTime(2025, 6, 6));
-
-            bookinger.Add(booking1);
-            bookinger.Add(booking2);
-            bookinger.Add(booking3);
-
+            bookingRepo.Add(new Booking(1, 1, 1, new DateTime(2025, 6, 1), new DateTime(2025, 6, 2)));
+            bookingRepo.Add(new Booking(2, 2, 2, new DateTime(2025, 6, 3), new DateTime(2025, 6, 4)));
+            bookingRepo.Add(new Booking(3, 3, 3, new DateTime(2025, 6, 5), new DateTime(2025, 6, 6)));
 
             Console.WriteLine("Velkommen til Hilerød SejleKlub");
             Thread.Sleep(1000);
@@ -111,7 +93,7 @@ namespace Hilerød_SejleKlub
                 switch (Valg)
                 {
                     case 1: // se medlemmer
-                        foreach (var Medlem in medlemmer)
+                        foreach (var Medlem in medlemRepo.GetAll())
                         {
                             Console.WriteLine(Medlem.ToString());
                             Console.WriteLine(new string('-', 120));
@@ -130,10 +112,10 @@ namespace Hilerød_SejleKlub
 
                         Console.WriteLine("Indtast telefon nr (ingen melemrum)");
                         int Telefon = Convert.ToInt32(Console.ReadLine());
-                        var newID = medlemmer.Max(medlem => medlem.Id) + 1;
+                        var newID = medlemRepo.GetAll().Max(medlem => medlem.Id) + 1;
                         Medlem NytMedlem = new Medlem(newID, Navn, Email, Telefon);
 
-                        medlemmer.Add(NytMedlem);
+                        medlemRepo.Add(NytMedlem);
 
                         Console.WriteLine("\nNyt medlem tilføjet");
                         Console.WriteLine(NytMedlem.ToString());
@@ -142,7 +124,7 @@ namespace Hilerød_SejleKlub
                         break;
 
                     case 3: // se både
-                        foreach (var Båd in både)
+                        foreach (var Båd in bådRepo.GetAll())
                         {
                             Console.WriteLine(Båd.ToString());
 
@@ -162,16 +144,16 @@ namespace Hilerød_SejleKlub
                             Console.WriteLine("Indtast problem (hvis intet fejler indtast ¨fejler intet¨)");
                             string problem = (Console.ReadLine());
                             Console.WriteLine("\nDu har nu oprettet en ny båd");
-                            var newID4 = både.Max(båd => båd.Id) + 1;
+                            var newID4 = bådRepo.GetAll().Max(båd => båd.Id) + 1;
                             Båd NyBåd = new Båd(newID4, navn, motor, sejlnummer, problem);
-                            både.Add(NyBåd);
+                            bådRepo.Add(NyBåd);
                             Console.WriteLine(new string('-', 120));
                             break;
 
                         }
 
                     case 5: // se bookinger
-                        foreach (var Booking in bookinger)
+                        foreach (var Booking in bookingRepo.GetAll())
                         {
                             Console.WriteLine(Booking.ToString());
 
@@ -189,14 +171,14 @@ namespace Hilerød_SejleKlub
                         Console.WriteLine("Indstast Slut Dato (dd-mm.yyyy)");
                         DateTime slutdato = Convert.ToDateTime(Console.ReadLine());
                         Console.WriteLine("\nDu har nu oprettet en ny bookning");
-                        var newID3 = bookinger.Max(booking => booking.BookingId) + 1;
+                        var newID3 = bookingRepo.GetAll().Max(booking => booking.BookingId) + 1; 
                         Booking NyBooking = new Booking(newID3, boatid, medlemid, startdato, slutdato);
-                        bookinger.Add(NyBooking);
+                        bookingRepo.Add(NyBooking);
                         Console.WriteLine(new string('-', 120));
                         break;
 
                     case 7: // se begivenheder
-                        foreach (var Begivenhed in Begivenheder)
+                        foreach (var Begivenhed in begivenhedRepo.GetAll())
                         {
                             Console.WriteLine(Begivenhed.ToString());
 
@@ -217,8 +199,8 @@ namespace Hilerød_SejleKlub
                         string sted = Console.ReadLine();
 
                         Begivenhed Nybegivenhed = new Begivenhed(medlemid2, Navn2, startdato2, slutdato2, sted);
-                        var newID2 = Begivenheder.Max(begivenhed => begivenhed.Id) + 1;
-                        Begivenheder.Add(Nybegivenhed);
+                        var newID2 = begivenhedRepo.GetAll().Max(begivenhed => begivenhed.Id) + 1;
+                        begivenhedRepo.Add(Nybegivenhed);
                         Console.WriteLine("\nDu har nu oprettet en ny begivenhed!");
 
                         Console.WriteLine(new string('-', 120));
@@ -228,7 +210,7 @@ namespace Hilerød_SejleKlub
                         Console.WriteLine("Indtast Medlems Id for det medlem, du vil redigere:");
                         int redigerId = Convert.ToInt32(Console.ReadLine());
 
-                        var medlemTilRedigering = medlemmer.FirstOrDefault(medlem => medlem.Id == redigerId);
+                        var medlemTilRedigering = medlemRepo.GetAll().FirstOrDefault(medlem => medlem.Id == redigerId);
 
                         if (medlemTilRedigering != null)
                         {
