@@ -17,17 +17,6 @@ namespace ClassLibrary.Repositories
             medlemmer.Add(medlem);
         }
 
-        public Medlem GetById(int id)
-        {
-            foreach (var medlem in medlemmer)
-            {
-                if (medlem.Id == id)
-                {
-                    return medlem;
-                }
-            }
-            return null; // Returner null, hvis ingen match findes
-        }
 
 
     }
