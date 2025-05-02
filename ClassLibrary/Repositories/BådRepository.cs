@@ -17,16 +17,6 @@ namespace ClassLibrary.Repositories
             både.Add(båd);
         }
 
-        public Båd GetById(int id)
-        {
-            foreach (var båd in både)
-            {
-                if (båd.Id == id)
-                {
-                    return båd;
-                }
-            }
-            return null; // Returner null, hvis ingen match findes
-        }
+        
     }
 }

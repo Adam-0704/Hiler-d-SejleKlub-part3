@@ -17,16 +17,7 @@ namespace ClassLibrary.Repositories
             bookinger.Add(booking);
         }
 
-        public Booking GetById(int id)
-        {
-            foreach (var booking in bookinger)
-            {
-                if (booking.BookingId == id)
-                {
-                    return booking;
-                }
-            }
-            return null; // Returner null, hvis ingen match findes
-        }
+
+        
     }
 }

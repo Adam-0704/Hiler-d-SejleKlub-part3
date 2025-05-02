@@ -29,15 +29,6 @@ namespace ClassLibrary.Repositories
             return null; // Returner null, hvis ingen match findes
         }
 
-        public void Update(Medlem medlem)
-        {
-            var existingMedlem = GetById(medlem.Id);
-            if (existingMedlem != null)
-            {
-                existingMedlem.Navn = medlem.Navn;
-                existingMedlem.Email = medlem.Email;
-                existingMedlem.Telefon = medlem.Telefon;
-            }
-        }
+
     }
 }
