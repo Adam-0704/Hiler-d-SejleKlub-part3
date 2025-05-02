@@ -75,13 +75,13 @@ namespace Hilerød_SejleKlub
                 Console.WriteLine("8:  Opret booking");
                 Thread.Sleep(200);
 
-                Console.WriteLine("9:  Se begivenheder");
+                Console.WriteLine("9:  Rediger bookninger");
                 Thread.Sleep(200);
 
-                Console.WriteLine("10: Opret begivenhed");
+                Console.WriteLine("10: Se begivenheder");
                 Thread.Sleep(200);
 
-                Console.WriteLine("11: Rediger bookninger");
+                Console.WriteLine("11: Opret begivenhed");
                 Thread.Sleep(200);
 
                 Console.WriteLine("12: Blog afsnit");
@@ -280,36 +280,7 @@ namespace Hilerød_SejleKlub
                         Console.WriteLine(new string('-', 120));
                         break;
 
-                    case 9: // se begivenheder
-                        foreach (var Begivenhed in begivenhedRepo.GetAll())
-                        {
-                            Console.WriteLine(Begivenhed.ToString());
-
-                            Console.WriteLine(new string('-', 120));
-                        }
-                        break;
-
-                    case 10: // opret begivenhed
-                        Console.WriteLine("Indtast Medlems Id");
-                        int medlemid2 = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("indtast begivenheds navn");
-                        string Navn2 = Console.ReadLine();
-                        Console.WriteLine("Indtast Start Dato (dd-mm-yyyy)");
-                        DateTime startdato2 = Convert.ToDateTime(Console.ReadLine());
-                        Console.WriteLine("Indtast Slut Dato (dd-mm-yyyy)");
-                        DateTime slutdato2 = Convert.ToDateTime(Console.ReadLine());
-                        Console.WriteLine("Indtast sted");
-                        string sted = Console.ReadLine();
-
-                        Begivenhed Nybegivenhed = new Begivenhed(medlemid2, Navn2, startdato2, slutdato2, sted);
-                        var newID2 = begivenhedRepo.GetAll().Max(begivenhed => begivenhed.Id) + 1;
-                        begivenhedRepo.Add(Nybegivenhed);
-                        Console.WriteLine("\nDu har nu oprettet en ny begivenhed!");
-
-                        Console.WriteLine(new string('-', 120));
-                        break;
-
-                    case 11:// rediger bookninger
+                    case 9:// rediger bookninger
                         Console.WriteLine("indtast booking id:");
                         int redigerbookingId = Convert.ToInt32(Console.ReadLine());
 
@@ -356,6 +327,38 @@ namespace Hilerød_SejleKlub
                             Console.WriteLine("Booking med det angivne ID blev ikke fundet.");
                         }
                         break;
+
+
+
+                    case 10: // se begivenheder
+                        foreach (var Begivenhed in begivenhedRepo.GetAll())
+                        {
+                            Console.WriteLine(Begivenhed.ToString());
+
+                            Console.WriteLine(new string('-', 120));
+                        }
+                        break;
+
+                    case 11: // opret begivenhed
+                        Console.WriteLine("Indtast Medlems Id");
+                        int medlemid2 = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("indtast begivenheds navn");
+                        string Navn2 = Console.ReadLine();
+                        Console.WriteLine("Indtast Start Dato (dd-mm-yyyy)");
+                        DateTime startdato2 = Convert.ToDateTime(Console.ReadLine());
+                        Console.WriteLine("Indtast Slut Dato (dd-mm-yyyy)");
+                        DateTime slutdato2 = Convert.ToDateTime(Console.ReadLine());
+                        Console.WriteLine("Indtast sted");
+                        string sted = Console.ReadLine();
+
+                        Begivenhed Nybegivenhed = new Begivenhed(medlemid2, Navn2, startdato2, slutdato2, sted);
+                        var newID2 = begivenhedRepo.GetAll().Max(begivenhed => begivenhed.Id) + 1;
+                        begivenhedRepo.Add(Nybegivenhed);
+                        Console.WriteLine("\nDu har nu oprettet en ny begivenhed!");
+
+                        Console.WriteLine(new string('-', 120));
+                        break;
+
 
 
 
